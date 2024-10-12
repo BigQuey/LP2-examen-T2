@@ -1,0 +1,44 @@
+package com.cibertec.app.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.cibertec.app.entity.Inventario;
+import com.cibertec.app.service.InventarioService;
+
+@Controller
+public class InventarioController {
+	@Autowired
+	private InventarioService inventarioService;
+	
+	@GetMapping("/")
+	public String Inventario(Model model) {
+		model.addAttribute("inventarios",inventarioService.getAllInventario());
+		return "inventario/index";
+	}
+	@GetMapping("/index/edit/{id}")
+	public String editInventario(@PathVariable Integer id,Model model) {
+		Inventario inv = inventarioService.findInventarioById(id);
+		model.addAttribute("inventario",inv);
+		return "index/edit";
+	}
+	@PostMapping("/index/{id}")
+	public String updateCliente(@PathVariable Integer id,@ModelAttribute("inventario") Inventario inventario, Model model) {
+	
+		Inventario existentInv = inventarioService.findInventarioById(id);
+		//cargarlo
+		existentInv.setIdClie(id);
+		existentInv.setRazonSoc(inventario);
+		existentInv.setNombreCiudad(inventario.getNombreCiudad());
+		existentInv.setDireccionClie(inventario.getDireccionClie());
+		existentInv.setTelefono(inventario.getTelefono());
+		//guardar el estudiante actualizado
+		service.updateCliente(existentCliente);
+		return "redirect:/cliente";
+	}
+}

@@ -1,0 +1,12 @@
+package com.cibertec.app.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cibertec.app.repository.InventarioRepository;
+
+@Service
+public class InventarioServiceImpl {
+	@Autowired
+	InventarioRepository inventarioRepository;
+}
