@@ -1,0 +1,9 @@
+package com.cibertec.app.service.impl;
+
+import java.util.List;
+
+import com.cibertec.app.entity.Inventario;
+
+public interface CategoriaServiceImpl {
+	
+}

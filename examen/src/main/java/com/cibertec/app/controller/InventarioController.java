@@ -21,13 +21,13 @@ public class InventarioController {
 		model.addAttribute("inventarios",inventarioService.getAllInventario());
 		return "Inventario/index";
 	}
-	@GetMapping("/index/edit/{id}")
+	@GetMapping("/Inventario/edit/{id}")
 	public String editInventario(@PathVariable Integer id,Model model) {
 		Inventario inv = inventarioService.findInventarioById(id);
 		model.addAttribute("inventario",inv);
-		return "index/edit";
+		return "Inventario/edit";
 	}
-	@PostMapping("/index/{id}")
+	@PostMapping("/Inventario/{id}")
 	public String updateCliente(@PathVariable Integer id,@ModelAttribute("inventario") Inventario inventario, Model model) {
 	
 		Inventario existentInv = inventarioService.findInventarioById(id);

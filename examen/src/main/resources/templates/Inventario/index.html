@@ -22,7 +22,7 @@
 		<!-- Navbar links -->
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" th:href="@{/usuario/}">Mantenedor
+				<li class="nav-item"><a class="nav-link" th:href="@{/producto}">Mantenedor
 						Apellido</a></li>
 			</ul>
 		</div>
@@ -43,16 +43,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="inventario: inventarios">
+				<tr th:each="inventario: ${inventarios}">
 					<td th:text="${inventario.nroInventario}"></td>
 					<td th:text="${inventario.fecha}"></td>
-					<td th:text="${inventario.idProd}"></td>
+					<td th:text="${inventario.idProd.nomProd}"></td>
 					<td th:text="${inventario.costoIngreso}"></td>
 
 
 
 					<td><a
-						th:href="@{/inventario/edit/{id}(id=${inventario.nroInventario})}"
+						th:href="@{/Inventario/edit/{id}(id=${inventario.nroInventario})}"
 						class="btn btn-primary">Actualizar</a></td>
 				</tr>
 			</tbody>

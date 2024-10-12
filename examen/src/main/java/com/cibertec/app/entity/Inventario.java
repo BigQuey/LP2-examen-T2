@@ -37,4 +37,8 @@ public class Inventario implements Serializable{
 	
 	@Column(name="costo_ingreso")
 	private BigDecimal costoIngreso;
+	
+	public Inventario(){
+		
+	}
 }
